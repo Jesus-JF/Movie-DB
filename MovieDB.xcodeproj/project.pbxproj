@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03E370AC2C9A2F9800A7D4C7 /* MoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E370AB2C9A2F9800A7D4C7 /* MoviesViewModel.swift */; };
 		185D5BBD68F24CB5D3DE9053 /* Pods_MovieDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5A34A98EA7D2CF8E54C254 /* Pods_MovieDB.framework */; };
 		7193A8B52C865AAE00DEE730 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7193A8B42C865AAE00DEE730 /* AppDelegate.swift */; };
 		7193A8B72C865AAE00DEE730 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7193A8B62C865AAE00DEE730 /* SceneDelegate.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03E370AB2C9A2F9800A7D4C7 /* MoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModel.swift; sourceTree = "<group>"; };
 		180B537443B423285FE732F2 /* Pods-MovieDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDB.debug.xcconfig"; path = "Target Support Files/Pods-MovieDB/Pods-MovieDB.debug.xcconfig"; sourceTree = "<group>"; };
 		5C5A34A98EA7D2CF8E54C254 /* Pods_MovieDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7193A8B12C865AAE00DEE730 /* MovieDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +100,7 @@
 				7193A8C22C865AB000DEE730 /* Info.plist */,
 				7193A8C82C865AE100DEE730 /* ScreenOneVC.swift */,
 				7193A8C92C865AE100DEE730 /* ScreenOneVC.xib */,
+				03E370AB2C9A2F9800A7D4C7 /* MoviesViewModel.swift */,
 				7193A8CC2C865B4100DEE730 /* MyCustomTableViewCell.swift */,
 				7193A8CD2C865B4100DEE730 /* MyCustomTableViewCell.xib */,
 				7193A8D22C8909E800DEE730 /* Constants.swift */,
@@ -245,6 +248,7 @@
 				7193A8CB2C865AE100DEE730 /* ScreenOneVC.swift in Sources */,
 				7193A8D72C890B5400DEE730 /* MovieService.swift in Sources */,
 				7193A8D32C8909E800DEE730 /* Constants.swift in Sources */,
+				03E370AC2C9A2F9800A7D4C7 /* MoviesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
