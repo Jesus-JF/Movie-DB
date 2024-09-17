@@ -1,0 +1,12 @@
+# Ignorar la carpeta Pods
+/Pods
+
+# Ignorar archivos derivados de Xcode
+/DerivedData/
+/build/
+
+# Ignorar el workspace generado por CocoaPods
+*.xcworkspace
+
+# Ignorar configuraciones de usuario
+xcuserdata/
