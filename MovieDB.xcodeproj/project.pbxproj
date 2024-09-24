@@ -98,18 +98,34 @@
 				7193A8BD2C865AB000DEE730 /* Assets.xcassets */,
 				7193A8BF2C865AB000DEE730 /* LaunchScreen.storyboard */,
 				7193A8C22C865AB000DEE730 /* Info.plist */,
-				7193A8C82C865AE100DEE730 /* ScreenOneVC.swift */,
-				7193A8C92C865AE100DEE730 /* ScreenOneVC.xib */,
+				7193A90B2CA3343300DEE730 /* Controllers */,
+				7193A90A2CA3340300DEE730 /* xibs */,
 				03E370AB2C9A2F9800A7D4C7 /* MoviesViewModel.swift */,
-				7193A8CC2C865B4100DEE730 /* MyCustomTableViewCell.swift */,
-				7193A8CD2C865B4100DEE730 /* MyCustomTableViewCell.xib */,
 				7193A8D22C8909E800DEE730 /* Constants.swift */,
 				7193A8D42C890A0D00DEE730 /* ApiCaller.swift */,
 				7193A8D62C890B5400DEE730 /* MovieService.swift */,
-				7193A8D82C922B4500DEE730 /* ScreenTwoVC.swift */,
-				7193A8D92C922B4500DEE730 /* ScreenTwoVC.xib */,
 			);
 			path = MovieDB;
+			sourceTree = "<group>";
+		};
+		7193A90A2CA3340300DEE730 /* xibs */ = {
+			isa = PBXGroup;
+			children = (
+				7193A8CD2C865B4100DEE730 /* MyCustomTableViewCell.xib */,
+				7193A8C92C865AE100DEE730 /* ScreenOneVC.xib */,
+				7193A8D92C922B4500DEE730 /* ScreenTwoVC.xib */,
+			);
+			path = xibs;
+			sourceTree = "<group>";
+		};
+		7193A90B2CA3343300DEE730 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7193A8C82C865AE100DEE730 /* ScreenOneVC.swift */,
+				7193A8CC2C865B4100DEE730 /* MyCustomTableViewCell.swift */,
+				7193A8D82C922B4500DEE730 /* ScreenTwoVC.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		EBA4FA2B4E84BD89AD20986A /* Pods */ = {

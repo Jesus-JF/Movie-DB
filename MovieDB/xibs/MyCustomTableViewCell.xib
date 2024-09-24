@@ -32,6 +32,9 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Details">
                                             <color key="baseBackgroundColor" red="0.88235294117647056" green="0.054901960784313725" blue="0.19215686274509802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="detailsButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bOv-4w-frD"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.14901960784313725" green="0.13725490196078433" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
