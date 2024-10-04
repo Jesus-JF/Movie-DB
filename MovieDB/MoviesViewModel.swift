@@ -1,6 +1,6 @@
 protocol MoviesViewModelProtocol: AnyObject{
     var delegate: MoviesDelegate? {get set}
-    var moviesRouter: MoviesRouter {get set}
+    //var moviesRouter: MoviesRouterProtocol {get set}
     var movies: [Movie] {get}
     var genres: [Genre] {get}
     func getPopularMovies()
@@ -20,11 +20,15 @@ class MoviesViewModel : MoviesViewModelProtocol {
     
     weak var delegate: MoviesDelegate?
     
-    var moviesRouter = MoviesRouter()
+    var moviesRouter : MoviesRouterProtocol
     var moviesUseCase = MoviesUseCase()
     
     var movies: [Movie] = []
     var genres: [Genre] = []
+    
+    init(moviesRouter: MoviesRouterProtocol){
+        self.moviesRouter = moviesRouter
+    }
    
     func getPopularMovies() {
         moviesUseCase.delegate = self

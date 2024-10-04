@@ -31,8 +31,8 @@ class ScreenOneVC: UIViewController{
     
     func setupViewModel() {
         
-        viewModel.delegate = self
-        viewModel.moviesRouter.viewController = self
+        //viewModel.delegate = self
+        //viewModel.moviesRouter.viewController = self
     }
 
 }

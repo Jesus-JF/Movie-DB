@@ -1,7 +1,12 @@
 import Foundation
 import UIKit
 
-class MoviesRouter{
+protocol MoviesRouterProtocol: AnyObject {
+    var viewController: UIViewController? {get set}
+    func goToMovieDetail(movie: Movie, genres: [Genre])
+}
+
+class MoviesRouter: MoviesRouterProtocol{
     var viewController: UIViewController?
     
     func goToMovieDetail(movie:Movie,genres:[Genre]){

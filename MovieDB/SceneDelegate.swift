@@ -16,9 +16,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        let moviesViewModel = MoviesViewModel()
+        let moviesRouter = MoviesRouter()
+        
+        let moviesViewModel = MoviesViewModel(moviesRouter: moviesRouter)
         
         let screenOneVC = ScreenOneVC(viewModel: moviesViewModel)
+        moviesRouter.viewController = screenOneVC
+        moviesViewModel.delegate = screenOneVC
         
        // let screenOneVC = ScreenOneVC(nibName: "ScreenOneVC", bundle: nil)
             

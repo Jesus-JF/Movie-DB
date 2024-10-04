@@ -1,3 +1,5 @@
+
+
 protocol MoviesUseCaseDelegate: AnyObject{
     func didFetchMovies(_ movies: [Movie])
     func didFetchGenres(_ genres: [Genre])
