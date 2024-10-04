@@ -1,34 +1,43 @@
+protocol MoviesViewModelProtocol: AnyObject{
+    var delegate: MoviesDelegate? {get set}
+    var moviesRouter: MoviesRouter {get set}
+    var movies: [Movie] {get}
+    var genres: [Genre] {get}
+    func getPopularMovies()
+    func getGenres()
+    func getMovieByIndex(index:Int) -> Movie
+    func getGenreNames(for movie: Movie) -> String
+    func goToDetail(index:Int)
+    
+}
+
 protocol MoviesDelegate: AnyObject {
     func didGetMovies()
     func didGetGenres()
 }
 
-class MoviesViewModel {
-    
-    var movieService = MovieService()
-    var movies: [Movie] = []
-    var genres: [Genre] = []
+class MoviesViewModel : MoviesViewModelProtocol {
     
     weak var delegate: MoviesDelegate?
     
+    var moviesRouter = MoviesRouter()
+    var moviesUseCase = MoviesUseCase()
+    
+    var movies: [Movie] = []
+    var genres: [Genre] = []
+   
     func getPopularMovies() {
-        movieService.getPopularMovies { [weak self] movies in
-            guard let self = self else { return }
-            if let movies {
-                self.movies = movies
-                self.delegate?.didGetMovies()
-            }
-        }
+        moviesUseCase.delegate = self
+        moviesUseCase.fetchPopularMovies()
     }
     
     func getGenres() {
-        movieService.getGenres { [weak self] genres in
-            guard let self = self else { return }
-            if let genres {
-                self.genres = genres
-                self.delegate?.didGetGenres()
-            }
-        }
+        moviesUseCase.delegate = self
+        moviesUseCase.fetchGenres()
+    }
+    
+    func getMovieByIndex(index:Int)-> Movie {
+        return movies[index]
     }
     
     func getGenreNames(for movie: Movie) -> String {
@@ -36,5 +45,21 @@ class MoviesViewModel {
             genres.first { $0.id == genreID }?.name
         }
         return genreNames.joined(separator: ", ")
+    }
+    
+    func goToDetail(index:Int){
+        moviesRouter.goToMovieDetail(movie: movies[index], genres: genres)
+    }
+}
+
+extension MoviesViewModel: MoviesUseCaseDelegate {
+    func didFetchMovies(_ movies: [Movie]) {
+        self.movies = movies
+        self.delegate?.didGetMovies()
+    }
+    
+    func didFetchGenres(_ genres: [Genre]) {
+        self.genres = genres
+        self.delegate?.didGetGenres()
     }
 }

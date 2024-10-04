@@ -15,7 +15,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let screenOneVC = ScreenOneVC(nibName: "ScreenOneVC", bundle: nil)
+        
+        let moviesViewModel = MoviesViewModel()
+        
+        let screenOneVC = ScreenOneVC(viewModel: moviesViewModel)
+        
+       // let screenOneVC = ScreenOneVC(nibName: "ScreenOneVC", bundle: nil)
             
         // Envolver ScreenOneVC en un UINavigationController
         let navigationController = UINavigationController(rootViewController: screenOneVC)

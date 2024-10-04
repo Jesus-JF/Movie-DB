@@ -3,8 +3,7 @@ import Kingfisher
 
 class ScreenOneVC: UIViewController{
     
-    
-    let viewModel = MoviesViewModel()
+    var viewModel : MoviesViewModelProtocol
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -16,6 +15,14 @@ class ScreenOneVC: UIViewController{
         viewModel.getGenres()
     }
     
+    init(viewModel: MoviesViewModelProtocol){
+        self.viewModel = viewModel
+        super.init(nibName: "ScreenOneVC", bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init error")
+    }
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -23,22 +30,13 @@ class ScreenOneVC: UIViewController{
     }
     
     func setupViewModel() {
+        
         viewModel.delegate = self
+        viewModel.moviesRouter.viewController = self
     }
-    
-
-//    @objc func showMovieDetails(_ sender: UIButton) {
-//        let selectedMovie = viewModel.movies[sender.tag]
-//        
-//        let detailsVC = ScreenTwoVC(nibName: "ScreenTwoVC", bundle: nil)
-//        detailsVC.movie = selectedMovie
-//        detailsVC.genres = viewModel.genres
-//        
-//        navigationController?.pushViewController(detailsVC, animated: true)
-//    }
 
 }
-
+//
 extension ScreenOneVC:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.movies.count
@@ -50,7 +48,7 @@ extension ScreenOneVC:UITableViewDelegate, UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MyCustomTableViewCell
-        let movie = viewModel.movies[indexPath.row]
+        let movie = viewModel.getMovieByIndex(index: indexPath.row)
         
         cell.delegate = self
         cell.configure(with: movie, genres: viewModel.getGenreNames(for: movie))
@@ -73,13 +71,7 @@ extension ScreenOneVC: MoviesDelegate {
 extension ScreenOneVC: MyCustomTableViewCellDelegate {
     func didTappedButton(in cell: MyCustomTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
-        let selectedMovie = viewModel.movies[indexPath.row]
-
-        let detailsVC = ScreenTwoVC(nibName: "ScreenTwoVC", bundle: nil)
-        detailsVC.movie = selectedMovie
-        detailsVC.genres = viewModel.genres
-        
-        navigationController?.pushViewController(detailsVC, animated: true)
+        viewModel.goToDetail(index: indexPath.row)
     }
 
 }
