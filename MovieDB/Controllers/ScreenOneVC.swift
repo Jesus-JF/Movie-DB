@@ -10,9 +10,9 @@ class ScreenOneVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        setupViewModel()
         viewModel.getPopularMovies()
         viewModel.getGenres()
+        self.title = "Movies"
     }
     
     init(viewModel: MoviesViewModelProtocol){
@@ -28,13 +28,6 @@ class ScreenOneVC: UIViewController{
         tableView.dataSource = self
         tableView.register(UINib(nibName: "MyCustomTableViewCell", bundle: nil), forCellReuseIdentifier: "MovieCell")
     }
-    
-    func setupViewModel() {
-        
-        //viewModel.delegate = self
-        //viewModel.moviesRouter.viewController = self
-    }
-
 }
 //
 extension ScreenOneVC:UITableViewDelegate, UITableViewDataSource{
