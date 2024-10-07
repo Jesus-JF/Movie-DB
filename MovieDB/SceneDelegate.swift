@@ -17,8 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         let moviesRouter = MoviesRouter()
+        let moviesUseCase = MoviesUseCase()
         
-        let moviesViewModel = MoviesViewModel(moviesRouter: moviesRouter)
+        let moviesViewModel = MoviesViewModel(moviesRouter: moviesRouter, moviesUseCase: moviesUseCase)
         
         let screenOneVC = ScreenOneVC(viewModel: moviesViewModel)
         moviesRouter.viewController = screenOneVC

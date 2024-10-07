@@ -1,11 +1,15 @@
-
+protocol MoviesUseCaseProtocol: AnyObject{
+    var delegate : MoviesUseCaseDelegate? {get set}
+    func fetchPopularMovies()
+    func fetchGenres()
+}
 
 protocol MoviesUseCaseDelegate: AnyObject{
     func didFetchMovies(_ movies: [Movie])
     func didFetchGenres(_ genres: [Genre])
 }
 
-class MoviesUseCase {
+class MoviesUseCase: MoviesUseCaseProtocol {
     
     weak var delegate : MoviesUseCaseDelegate?
     

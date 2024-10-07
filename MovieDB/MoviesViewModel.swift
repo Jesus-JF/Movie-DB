@@ -21,22 +21,24 @@ class MoviesViewModel : MoviesViewModelProtocol {
     weak var delegate: MoviesDelegate?
     
     var moviesRouter : MoviesRouterProtocol
-    var moviesUseCase = MoviesUseCase()
+    var moviesUseCase : MoviesUseCaseProtocol
     
     var movies: [Movie] = []
     var genres: [Genre] = []
     
-    init(moviesRouter: MoviesRouterProtocol){
+    init(moviesRouter: MoviesRouterProtocol, moviesUseCase: MoviesUseCaseProtocol){
         self.moviesRouter = moviesRouter
+        self.moviesUseCase = moviesUseCase
+        self.moviesUseCase.delegate = self
+        self.moviesUseCase.delegate = self
     }
    
     func getPopularMovies() {
-        moviesUseCase.delegate = self
         moviesUseCase.fetchPopularMovies()
     }
     
     func getGenres() {
-        moviesUseCase.delegate = self
+        
         moviesUseCase.fetchGenres()
     }
     

@@ -12,9 +12,11 @@ class MoviesRouterMock: MoviesRouterProtocol {
     var viewController: UIViewController?
     var didGoToMovieDetail: Bool = false
     var movie: Movie?
+    var genres : [Genre]?
     
     func goToMovieDetail(movie: Movie, genres: [Genre]) {
         self.didGoToMovieDetail = true
         self.movie =  movie
+        self.genres = genres
     }
 }
