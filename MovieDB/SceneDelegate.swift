@@ -16,18 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        let moviesRouter = MoviesRouter()
-        let moviesUseCase = MoviesUseCase()
-        
-        let moviesViewModel = MoviesViewModel(moviesRouter: moviesRouter, moviesUseCase: moviesUseCase)
-        
-        let screenOneVC = ScreenOneVC(viewModel: moviesViewModel)
-        moviesRouter.viewController = screenOneVC
-        moviesViewModel.delegate = screenOneVC
-        
-       // let screenOneVC = ScreenOneVC(nibName: "ScreenOneVC", bundle: nil)
-            
-        // Envolver ScreenOneVC en un UINavigationController
+        let screenOneVC = MoviesAssembly.build()
         let navigationController = UINavigationController(rootViewController: screenOneVC)
         
         // Establecer el UINavigationController como la rootViewController
